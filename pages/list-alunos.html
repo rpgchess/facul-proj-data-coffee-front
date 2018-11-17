@@ -1,0 +1,32 @@
+<div class="container">
+	<form class="form-inline">
+		<div class="form-group">
+			<a href="#!/aluno/list" class="btn btn-lg btn-primary disabled">Voltar</a>
+			<label for="title" class="control-label">ALUNOS</label>
+			<a href="#!/aluno/new" class="btn btn-lg btn-primary">Novo</a>
+		</div>
+	</form>
+	<table class="table table-sm table-striped table-hover">
+		<thead class="thead-light">
+		    <tr>
+		      <th scope="col">RGM</th>
+		      <th scope="col">Nome</th>
+		      <th scope="col">Turma</th>
+		      <th scope="col">Período</th>
+		      <th scope="col">Controle</th>
+		    </tr>
+		</thead>
+		<tbody>
+	    	<tr ng-repeat="aluno in alunos">
+	    		<td>{{ aluno.rgm }}</td>
+	    		<td>{{ aluno.nome }}</td>
+	    		<td>{{ aluno.turma }}</td>
+	    		<td>{{ aluno.periodo }}</td>
+		    	<td>
+		      		<a href="#!/" class="btn btn-sm btn-primary">Editar</a>
+			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

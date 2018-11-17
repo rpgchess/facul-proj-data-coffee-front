@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="no-js" lang="pt-br" ng-app="dataCoffee">
+<head>
+	<!-- Required meta tags -->
+    <meta charset="UTF-8">
+    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+	<meta name="author" content="Claudio A. Martins">
+	<meta name="description" content="">
+	<link rel="icon" href="#!/.ico">
+    
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.min.css" />
+	
+	<!-- Alertify -->
+	<link rel="stylesheet" href="frameworks/alertify/css/alertify.core.css" />
+	
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/content.css" />
+	
+	<script src="frameworks/modernizr/js/modernizr.js"></script> <!-- Modernizr -->
+
+	<title>Gerenciador de Atividades</title>
+	
+	<!-- <base href="#!//"> -->
+</head>
+<body>
+	<header class="cd-main-header">
+		<a href="#!/#" class="cd-logo"></a>
+		
+		<a href="#!/#" class="cd-nav-trigger"><span></span></a>
+
+		<nav class="cd-nav">
+			<ul class="cd-top-nav">
+				<li><a href="#!/about">Sobre</a></li>
+				<li><a href="#!/contact">Contato</a></li>
+				<li class="has-children account">
+					<a href="#!/#"><img src="img/cd-avatar.jpg" alt="avatar">Claudio</a>
+					<ul>
+						<li><a href="#!/perfil">Meu perfil</a></li>
+						<li><a href="#!/">Sair</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header> <!-- .cd-main-header -->
+	
+	<main class="cd-main-content">
+	
+		<nav class="cd-side-nav">
+			<ul>
+				<li class="cd-label">Inicio</li>
+				<li class="no-touch home">
+					<a href="#!/">Bem-vindo(a)</a>
+				</li>
+				<li class="no-touch notif">
+					<a href="#!/notify">Notificação<span class="count">1</span></a>
+				</li>
+				<li class="cd-label">Coordenador</li>
+					<li class="no-touch people"><a href="#!/professor/list">Professores</a></li>
+					<li class="no-touch task"><a href="#!/curso/list">Cursos</a></li>
+					<li class="no-touch grid"><a href="#!/categoria/list">Categorias</a></li>
+					<li class="no-touch task"><a href="#!/disciplina/list">Disciplina</a></li>
+				<li class="cd-label">Professor</li>
+					<li class="no-touch layers"><a href="#!/atividade/list">Atividades</a></li>
+					<li class="no-touch people"><a href="#!/aluno/list">Alunos</a></li>
+					<li class="no-touch task"><a href="#!/disciplina/list">Disciplina</a></li>
+					<li class="no-touch group"><a href="#!/turma/list">Turmas</a></li>
+					<li class="no-touch edit"><a href="#!/periodo/list">Períodos</a></li>
+					<li class="no-touch task"><a href="#!/report/professor">Relatórios (Prof)</a></li>
+				<li class="cd-label">Aluno</li>
+					<li class="no-touch people"><a href="#!/aluno/verify">Verificar Aluno</a></li>
+					<li class="no-touch people"><a href="#!/aluno/make">Incluir Aluno</a></li>
+					<li class="no-touch grid"><a href="#!/grupo/list">Grupos</a></li>
+					<li class="no-touch task"><a href="#!/report/aluno">Relatórios (Aluno)</a></li>
+			</ul>
+			<br>
+		</nav> <!-- .cd-side-nav -->
+		<div class="content-wrapper">
+
+			<!-- ANGULARJS INJECTED VIEWS -->
+			<div ng-view></div>
+
+		</div> <!-- .content-wrapper -->
+	</main> <!-- .cd-main-content -->
+
+	<script src="frameworks/jquery/js/jquery-3.3.1.min.js"></script>
+	<script src="frameworks/jquery/js/jquery.menu-aim.js"></script>
+	<script src="js/sidebar.js"></script>
+	<!-- Bootstrap -->
+	<script src="frameworks/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Alertify -->
+	<script src="frameworks/alertify/js/alertify.min.js"></script>
+	<!-- AngularJS -->
+	<script src="frameworks/angularjs/js/angular.min.js"></script>
+	<script src="frameworks/angularjs/js/angular-route.min.js"></script>
+	<script src="controllers/app.controller.js"></script>
+	<script src="controllers/aluno/edit-aluno.controller.js"></script>
+	<script src="controllers/aluno/list-alunos.controller.js"></script>
+	<script src="controllers/aluno/new-aluno.controller.js"></script>
+	<script src="controllers/atividade/edit-atividade.controller.js"></script>
+	<script src="controllers/atividade/list-atividades.controller.js"></script>
+	<script src="controllers/atividade/new-atividade.controller.js"></script>
+	<script src="controllers/categoria/edit-categoria.controller.js"></script>
+	<script src="controllers/categoria/list-categorias.controller.js"></script>
+	<script src="controllers/categoria/new-categoria.controller.js"></script>
+	<script src="controllers/curso/edit-curso.controller.js"></script>
+	<script src="controllers/curso/list-cursos.controller.js"></script>
+	<script src="controllers/curso/new-curso.controller.js"></script>
+	<script src="controllers/disciplina/edit-disciplina.controller.js"></script>
+	<script src="controllers/disciplina/list-disciplinas.controller.js"></script>
+	<script src="controllers/disciplina/new-disciplina.controller.js"></script>
+	<script src="controllers/grupo/edit-grupo.controller.js"></script>
+	<script src="controllers/grupo/list-grupos.controller.js"></script>
+	<script src="controllers/grupo/new-grupo.controller.js"></script>
+	<script src="controllers/periodo/edit-periodo.controller.js"></script>
+	<script src="controllers/periodo/list-periodos.controller.js"></script>
+	<script src="controllers/periodo/new-periodo.controller.js"></script>
+	<script src="controllers/professor/edit-professor.controller.js"></script>
+	<script src="controllers/professor/list-professores.controller.js"></script>
+	<script src="controllers/professor/new-professor.controller.js"></script>
+	<script src="controllers/turma/edit-turma.controller.js"></script>
+	<script src="controllers/turma/list-turmas.controller.js"></script>
+	<script src="controllers/turma/new-turma.controller.js"></script>
+</body>
+</html>
