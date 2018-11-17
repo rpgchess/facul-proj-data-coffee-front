@@ -10,13 +10,13 @@
 		<thead class="thead-light">
 		    <tr>
 	    		<th scope="col">Abrev.</th>
-		    	<th scope="col">Curso</th>
+		    	<th scope="col"><input type="text" name="search" class="search" ng-model="curso.nome" placeholder="Curso"></th>
 		    	<th scope="col">Categoria</th>
-	    		<th scope="col">Controle</th>
+	    		<th scope="col" style="width:100px">Controle</th>
 	    	</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="curso in cursos">
+			<tr ng-repeat="curso in cursos | filter:curso">
 				<td>{{ curso.abrev }}</td>
 				<td>{{ curso.nome }}</td>
 				<td>{{ curso.categoria }}</td>

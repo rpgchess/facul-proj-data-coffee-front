@@ -9,15 +9,15 @@
 	<table class="table table-sm table-striped table-hover">
 		<thead class="thead-light">
 		    <tr>
-		      <th scope="col">RGM</th>
-		      <th scope="col">Nome</th>
+		      <th scope="col" style="width:100px"><input type="text" name="search" class="search" ng-model="aluno.rgm" placeholder="RGM"></th>
+		      <th scope="col"><input type="text" name="search" class="search" ng-model="aluno.nome" placeholder="Aluno"></th>
 		      <th scope="col">Turma</th>
 		      <th scope="col">Período</th>
-		      <th scope="col">Controle</th>
+		      <th scope="col" style="width:100px">Controle</th>
 		    </tr>
 		</thead>
 		<tbody>
-	    	<tr ng-repeat="aluno in alunos">
+	    	<tr ng-repeat="aluno in alunos | filter:aluno">
 	    		<td>{{ aluno.rgm }}</td>
 	    		<td>{{ aluno.nome }}</td>
 	    		<td>{{ aluno.turma }}</td>
