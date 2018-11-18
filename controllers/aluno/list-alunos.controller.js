@@ -5,7 +5,7 @@ listAlunos.$inject = ['$scope', '$http', '$rootScope'];
 function listAlunos($scope, $http, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.baseUrl + 'data/alunos.json',
+        url: $rootScope.baseUrl + $rootScope.alunoUrl,
         headers: {
             'Content-Type': 'application/json'
         }

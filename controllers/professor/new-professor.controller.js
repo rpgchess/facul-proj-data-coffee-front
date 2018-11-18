@@ -1,7 +1,7 @@
 angular.module('dataCoffee').controller('newProfessor', newProfessor);
 
-newProfessor.$inject = ['$scope', '$routeParams', '$rootScope', '$route', '$location'];
+newProfessor.$inject = ['$scope', '$rootScope'];
 
-function newProfessor($scope, $routeParams, $routeScope, $route, $location) {
+function newProfessor($scope, $rootScope) {
     
 }

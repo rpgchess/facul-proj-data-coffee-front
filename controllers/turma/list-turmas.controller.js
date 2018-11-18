@@ -5,7 +5,7 @@ listTurmas.$inject = ['$scope', '$http', '$rootScope'];
 function listTurmas($scope, $http, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.baseUrl + 'data/turmas.json',
+        url: $rootScope.baseUrl + $rootScope.turmaUrl,
         headers: {
             'Content-Type': 'application/json'
         }

@@ -1,7 +1,7 @@
 angular.module('dataCoffee').controller('newCategoria', newCategoria);
 
-newCategoria.$inject = ['$scope', '$routeParams', '$rootScope', '$route', '$location'];
+newCategoria.$inject = ['$scope', '$rootScope'];
 
-function newCategoria($scope, $routeParams, $routeScope, $route, $location) {
+function newCategoria($scope, $rootScope) {
     
 }

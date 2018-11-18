@@ -32,7 +32,7 @@
 				<!-- <select name="curso" class="form-control selectpicker" data-live-search="true"> -->
 				<select name="curso" class="form-control" searchable="Pesquisar...">
 					<optgroup label="Itens:">
-						<option value="1" selected>Análise e Desenvolvimento de Sistemas</option>
+						<option value="{{ $index }}" ng-repeat="curso in cursos">{{ curso.nome }}</option>
 					</optgroup>
 				</select>
 				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -47,8 +47,7 @@
 				<!-- <select name="disc" class="form-control selectpicker" data-live-search="true"> -->
 				<select name="disc" class="form-control" searchable="Pesquisar...">
 					<optgroup label="Itens:">
-						<option value="1">Análise e Desenvolvimento de Projetos I</option>
-						<option value="1" selected>Análise e Desenvolvimento de Projetos II</option>
+						<option value="{{ $index }}" ng-repeat="disciplina in disciplinas">{{ disciplina.nome }}</option>
 					</optgroup>
 				</select>
 				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -87,7 +86,7 @@
 			</div>
 			<div class="form-group col">
 				<label for="file" class="control-label">Anexar:</label>
-				<input type="file" name="file" class="form-control" />
+				<input type="file" name="file" class="form-control" accept="application/pdf"/>
 				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
 				<span class="glyphicon glyphicon-remove form-control-feedback"></span>

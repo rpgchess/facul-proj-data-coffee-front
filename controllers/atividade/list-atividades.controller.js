@@ -5,7 +5,7 @@ listAtividades.$inject = ['$scope', '$http', '$rootScope'];
 function listAtividades($scope, $http, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.baseUrl + 'data/atividades.json',
+        url: $rootScope.baseUrl + $rootScope.atividadeUrl,
         headers: {
             'Content-Type': 'application/json'
         }

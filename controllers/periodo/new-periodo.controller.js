@@ -1,7 +1,7 @@
 angular.module('dataCoffee').controller('newPeriodo', newPeriodo);
 
-newPeriodo.$inject = ['$scope', '$routeParams', '$rootScope', '$route', '$location'];
+newPeriodo.$inject = ['$scope', '$rootScope'];
 
-function newPeriodo($scope, $routeParams, $routeScope, $route, $location) {
+function newPeriodo($scope, $rootScope) {
     
 }

@@ -203,6 +203,15 @@ angular.module('dataCoffee', ['ngRoute'])
 
 .run(function($rootScope, $location) {
 	$rootScope.baseUrl = "http://localhost:8080/";
+	$rootScope.alunoUrl = "data/alunos.json";
+	$rootScope.atividadeUrl = "data/atividades.json";
+	$rootScope.categoriaUrl = "data/categorias.json";
+	$rootScope.cursoUrl = "data/cursos.json";
+	$rootScope.disciplinaUrl = "data/disciplinas.json";
+	$rootScope.grupoUrl = "data/grupos.json";
+	$rootScope.periodoUrl = "data/periodos.json";
+	$rootScope.professorUrl = "data/professores.json";
+	$rootScope.turmaUrl = "data/turmas.json";
 	$rootScope.home = function (){
 		$location.path('/')
 	}

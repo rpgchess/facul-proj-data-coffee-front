@@ -1,7 +1,7 @@
 angular.module('dataCoffee').controller('newGrupo', newGrupo);
 
-newGrupo.$inject = ['$scope', '$routeParams', '$rootScope', '$route', '$location'];
+newGrupo.$inject = ['$scope', '$rootScope'];
 
-function newGrupo($scope, $routeParams, $routeScope, $route, $location) {
+function newGrupo($scope, $rootScope) {
     
 }

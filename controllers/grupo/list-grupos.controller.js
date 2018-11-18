@@ -5,7 +5,7 @@ listGrupos.$inject = ['$scope', '$http', '$rootScope'];
 function listGrupos($scope, $http, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.baseUrl + 'data/grupos.json',
+        url: $rootScope.baseUrl + $rootScope.grupoUrl,
         headers: {
             'Content-Type': 'application/json'
         }

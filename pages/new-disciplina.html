@@ -31,7 +31,7 @@
 				<!-- <select name="curso" class="form-control selectpicker" data-live-search="true"> -->
 				<select name="curso" class="form-control" searchable="Pesquisar...">
 					<optgroup label="Itens:">
-						<option value="1" selected>Análise e Desenvolvimento de Sistemas</option>
+						<option value="{{ $index }}" ng-repeat="curso in cursos">{{ curso.nome }}</option>
 					</optgroup>
 				</select>
 				<span class="glyphicon glyphicon-ok form-control-feedback"></span>

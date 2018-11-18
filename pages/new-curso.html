@@ -30,11 +30,7 @@
 				<label for="categ" class="control-label">Categoria</label>
 				<select name="categ" class="form-control">
 					<optgroup label="Itens:">
-						<option value="1" selected>Ciências humanas e educação</option>
-						<option value="2">Exatas</option>
-						<option value="3">Geral</option>
-						<option value="4">Gestão e Negócios</option>
-						<option value="5">Saúde</option>
+						<option value="{{ $index }}" ng-repeat="categoria in categorias">{{ categoria.nome }}</option>
 					</optgroup>
 				</select>
 				<span class="glyphicon glyphicon-ok form-control-feedback"></span>

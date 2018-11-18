@@ -1,7 +1,7 @@
 angular.module('dataCoffee').controller('newTurma', newTurma);
 
-newTurma.$inject = ['$scope', '$routeParams', '$rootScope', '$route', '$location'];
+newTurma.$inject = ['$scope', '$rootScope'];
 
-function newTurma($scope, $routeParams, $routeScope, $route, $location) {
+function newTurma($scope, $rootScope) {
     
 }

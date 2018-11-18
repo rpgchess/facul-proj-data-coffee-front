@@ -5,7 +5,7 @@ listPeriodos.$inject = ['$scope', '$http', '$rootScope'];
 function listPeriodos($scope, $http, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.baseUrl + 'data/periodos.json',
+        url: $rootScope.baseUrl + $rootScope.periodoUrl,
         headers: {
             'Content-Type': 'application/json'
         }

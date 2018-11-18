@@ -5,7 +5,7 @@ listCategorias.$inject = ['$scope', '$http', '$rootScope'];
 function listCategorias($scope, $http, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.baseUrl + 'data/categorias.json',
+        url: $rootScope.baseUrl + $rootScope.categoriaUrl,
         headers: {
             'Content-Type': 'application/json'
         }

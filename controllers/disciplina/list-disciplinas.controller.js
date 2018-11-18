@@ -5,7 +5,7 @@ listDisciplinas.$inject = ['$scope', '$http', '$rootScope'];
 function listDisciplinas($scope, $http, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.baseUrl + 'data/disciplinas.json',
+        url: $rootScope.baseUrl + $rootScope.disciplinaUrl,
         headers: {
             'Content-Type': 'application/json'
         }

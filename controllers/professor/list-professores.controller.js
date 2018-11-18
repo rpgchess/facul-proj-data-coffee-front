@@ -5,7 +5,7 @@ listProfessores.$inject = ['$scope', '$http', '$rootScope'];
 function listProfessores($scope, $http, $rootScope) {
     $http({
         method: 'GET',
-        url: $rootScope.baseUrl + 'data/professores.json',
+        url: $rootScope.baseUrl + $rootScope.professorUrl,
         headers: {
             'Content-Type': 'application/json'
         }
