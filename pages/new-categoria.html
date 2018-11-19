@@ -6,15 +6,15 @@
 			<a href="#!/categoria/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmCateg" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col">
+			<div class="form-group col" ng-class="{ 'was-validated' : frmCateg.categ.$invalid && !frmCateg.categ.$pristine }">
 				<label for="categ" class="control-label">Categoria:</label>
-				<input type="text" name="categ" placeholder="Categoria" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="categ" placeholder="Categoria" class="form-control"
+				required ng-model="categ" maxlength="25" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmCateg.categ.$dirty && frmCateg.categ.$error.required">Categoria obrigatória</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">

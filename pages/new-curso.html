@@ -6,23 +6,19 @@
 			<a href="#!/curso/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmCurso" novalidate>
 		<div class="form-row justify-content-center">
 			<div class="form-group col-2">
 				<label for="abrev" class="control-label">Abrev.</label>
 				<input type="text" name="abrev" placeholder="ABC" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
-			<div class="form-group col">
+			<div class="form-group col" ng-class="{ 'was-validated' : frmCurso.name.$invalid && !frmCurso.name.$pristine }">
 				<label for="name" class="control-label">Curso:</label>
-				<input type="text" name="name" size="" maxlength="" placeholder="Curso" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="name" size="" maxlength="" placeholder="Curso" class="form-control"
+				required ng-model="name" maxlength="50" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmCurso.name.$dirty && frmCurso.name.$error.required">Nome obrigatório</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-start">
@@ -33,10 +29,6 @@
 						<option value="{{ $index }}" ng-repeat="categoria in categorias">{{ categoria.nome }}</option>
 					</optgroup>
 				</select>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">

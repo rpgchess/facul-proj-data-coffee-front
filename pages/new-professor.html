@@ -6,33 +6,34 @@
 			<a href="#!/professor/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmProf" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col-4">
+			<div class="form-group col-4" ng-class="{ 'was-validated' : frmProf.rgm.$invalid && !frmProf.rgm.$pristine }">
 				<label for="rgm" class="control-label">Registro:</label>
-				<input type="text" name="rgm" size="" maxlength="" placeholder="Nº de Registro" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="rgm" placeholder="Nº de Registro" class="form-control" required
+				ng-model="rgm" minlength="7" maxlength="7" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmProf.rgm.$dirty && frmProf.rgm.$error.required">Registro obrigatório</span>
+					<span class="help-block" ng-show="frmProf.rgm.$error.minlength">Pouco</span>
+				</div>
 			</div>
-			<div class="form-group col">
+			<div class="form-group col" ng-class="{ 'was-validated' : frmProf.name.$invalid && !frmProf.name.$pristine }">
 				<label for="name" class="control-label">Nome:</label>
-				<input type="text" name="name" size="" maxlength="" placeholder="Nome completo" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="name" placeholder="Nome completo" class="form-control" required
+				ng-model="name" maxlength="50" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmProf.name.$dirty && frmProf.name.$error.required">Nome obrigatório</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
-			<div class="form-group col-6">
+			<div class="form-group col-6" ng-class="{ 'was-validated' : frmProf.email.$invalid && !frmProf.email.$pristine }">
 				<label for="email" class="control-label">Email:</label>
-				<input type="email" name="email" size="" maxlength="" placeholder="exemplo@dominio.com.br" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="email" placeholder="exemplo@dominio.com.br" class="form-control" required
+				ng-model="email" maxlength="50" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmProf.email.$dirty && frmProf.email.$error.required">Email obrigatório</span>
+				</div>
 			</div>
 			<div class="form-group col">
 				<label for="type-access" class="control-label">Nível de acesso:</label>
@@ -42,28 +43,26 @@
 						<option value="2" selected>Professor</option>
 					</optgroup>
 				</select>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
 		</div>
 		<div class="form-row justify-content-start">
-			<div class="form-group col-sm-3 col-md-3">
+			<div class="form-group col-sm-3 col-md-3" ng-class="{ 'was-validated' : frmProf.pwd.$invalid && !frmProf.pwd	.$pristine }">
 				<label for="pwd" class="control-label">Senha:</label>
-				<input type="password" name="pwd" size="" maxlength="" placeholder="Senha" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="password" name="pwd" minlength="8" maxlength="20" placeholder="Senha" class="form-control" required
+				ng-model="pwd" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmProf.pwd.$dirty && frmProf.pwd.$error.required">Senha obrigatória</span>
+					<span class="help-block" ng-show="frmProf.pwd.$error.minlength">Pouco</span>
+				</div>
 			</div>
-			<div class="form-group col-sm-3 col-md-3">
+			<div class="form-group col-sm-3 col-md-3" ng-class="{ 'was-validated' : frmProf.pwdretype.$invalid && !frmProf.pwdretype.$pristine }">
 				<label for="pwdretype" class="control-label">Confirmar:</label>
-				<input type="password" name="pwdretype" size="" maxlength="" placeholder="Confirmar senha" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="password" name="pwdretype" minlength="8" maxlength="20" placeholder="Confirmar senha" class="form-control" required
+				ng-model="pwdretype" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmProf.pwdretype.$dirty && frmProf.pwdretype.$error.required">Confirmação obrigatória</span>
+					<span class="help-block" ng-show="frmProf.pwdretype.$error.minlength">Pouco</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">

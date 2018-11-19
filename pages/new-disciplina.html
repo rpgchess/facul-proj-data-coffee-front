@@ -6,25 +6,21 @@
 			<a href="#!/disciplina/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmDisc" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col">
+			<div class="form-group col" ng-class="{ 'was-validated' : frmDisc.name.$invalid && !frmDisc.name.$pristine }">
 				<label for="name" class="control-label">Disciplina:</label>
-				<input type="text" name="name" placeholder="Nome da disciplina" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="name" placeholder="Nome da disciplina" class="form-control"
+				required ng-model="name" maxlength="50" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmDisc.name.$dirty && frmDisc.name.$error.required">Nome obrigatório</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-start">
 			<div class="form-group col-2">
 				<label for="sem" class="control-label">Semestre</label>
 				<input type="number" name="sem" min="1" max="10" placeholder="Qtde." class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
 			<div class="form-group col">
 				<label for="curso" class="control-label">Curso:</label>
@@ -34,10 +30,6 @@
 						<option value="{{ $index }}" ng-repeat="curso in cursos">{{ curso.nome }}</option>
 					</optgroup>
 				</select>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">

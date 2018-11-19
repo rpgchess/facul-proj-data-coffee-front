@@ -6,15 +6,15 @@
 			<a href="#!/periodo/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmPeriod" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col">
-				<label for="periodo" class="control-label">Período:</label>
-				<input type="text" name="periodo" size="" maxlength="" placeholder="Período" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+			<div class="form-group col" ng-class="{ 'was-validated' : frmPeriod.period.$invalid && !frmPeriod.period.$pristine }">
+				<label for="period" class="control-label">Período:</label>
+				<input type="text" name="period" placeholder="Período" class="form-control"
+				required ng-model="period" maxlength="10" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmPeriod.period.$dirty && frmPeriod.period.$error.required">Período obrigatório</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">

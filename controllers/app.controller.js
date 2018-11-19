@@ -159,21 +159,21 @@ angular.module('dataCoffee', ['ngRoute'])
 			}
 		).when("/report/professor",
 			{
-				templateUrl: "pages/reports.html"
+				templateUrl: "pages/report.html"
 			}
 		)
 		// Aluno
 		.when("/aluno/verify",
 			{
-				templateUrl: "pages/valid-aluno.html"
+				templateUrl: "aluno-valid.html"
 			}
 		).when("/aluno/make",
 			{
-				templateUrl: "pages/make-aluno.html"
+				templateUrl: "aluno-make.html"
 			}
 		).when("/aluno/make:obj",
 			{
-				templateUrl: "pages/make-aluno.html"
+				templateUrl: "aluno-make.html"
 			}
 		).when("/grupo/list",
 			{
@@ -192,7 +192,7 @@ angular.module('dataCoffee', ['ngRoute'])
 			}
 		).when("/report/aluno",
 			{
-				templateUrl: "pages/reports.html"
+				templateUrl: "aluno-report.html"
 			}
 		).otherwise(
 			{

@@ -6,23 +6,19 @@
 			<a href="#!/grupo/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmGroup" novalidate>
 		<div class="form-row justify-content-center">
 			<div class="form-group col-2">
 				<label for="qtde" class="control-label">Quantidade:</label>
 				<input type="text" name="qtde" nim="2" max="25" placeholder="Qtde." readonly class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
-			<div class="form-group col">
+			<div class="form-group col" ng-class="{ 'was-validated' : frmGroup.name.$invalid && !frmGroup.name.$pristine }">
 				<label for="name" class="control-label">Grupo:</label>
-				<input type="text" name="name" placeholder="Nome completo" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="name" placeholder="Nome completo" class="form-control"
+				required ng-model="name" maxlength="25" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmGroup.name.$dirty && frmGroup.name.$error.required">Nome de grupo obrigatório</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-around placeholders">

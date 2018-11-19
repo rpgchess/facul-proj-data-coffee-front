@@ -6,15 +6,15 @@
 			<a href="#!/turma/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmTurma" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col">
+			<div class="form-group col" ng-class="{ 'was-validated' : frmTurma.turma.$invalid && !frmTurma.turma.$pristine }">
 				<label for="turma" class="control-label">Turma:</label>
-				<input type="text" name="turma" size="" maxlength="" placeholder="Turma" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="turma" placeholder="Turma" class="form-control"
+				required ng-model="turma" maxlength="10" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmTurma.turma.$dirty && frmTurma.turma.$error.required">Turma obrigatória</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">

@@ -6,26 +6,24 @@
 			<a href="#!/atividade/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmAtividade" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col-3">
+			<div class="form-group col-3" ng-class="{ 'was-validated' : frmAtividade.date.$invalid && !frmAtividade.date.$pristine }">
 				<label for="date" class="control-label">Data:</label>
-				<input type="date" name="date" placeholder="Data" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="date" name="date" placeholder="Data" class="form-control" 
+				required ng-model="date"/>
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmAtividade.date.$dirty && frmAtividade.date.$error.required">Data obrigatória</span>
+				</div>
 			</div>
 			<div class="form-group col-3">
 				<div class="form-check">
-    				<input type="checkbox" name="date-able" class="form-check-input" />
+					<input type="checkbox" name="date-able" class="form-check-input"
+					ng-model="dateAble" />
     				<label for="date-end">Entrega</label>
   				</div>
-				<input type="date" name="date-end" placeholder="Entrega" readonly class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="date" name="date-end" placeholder="Entrega" class="form-control"
+				ng-model="dateEnd" ng-disabled="!dateAble" />
 			</div>
 			<div class="form-group col">
 				<label for="curso" class="control-label">Curso:</label>
@@ -35,10 +33,6 @@
 						<option value="{{ $index }}" ng-repeat="curso in cursos">{{ curso.nome }}</option>
 					</optgroup>
 				</select>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
@@ -50,57 +44,38 @@
 						<option value="{{ $index }}" ng-repeat="disciplina in disciplinas">{{ disciplina.nome }}</option>
 					</optgroup>
 				</select>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
 			<div class="form-group col-4">
-				<fieldset name="">
+				<fieldset name="" ng-init="opt = 1">
 					<legend>Trabalho:</legend>
-					<label class="radio-inline"><input type="radio" name="opt-olny" id="" value="1" checked>Individual</label>
-					<label class="radio-inline"><input type="radio" name="opt-mult" id="" value="2">Grupo</label>
-					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-					<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-					<span class="help-block"></span>
+					<label class="radio-inline"><input type="radio" ng-model="opt" name="opt" value="1">Individual</label>
+					<label class="radio-inline"><input type="radio" ng-model="opt" name="opt" value="2">Grupo</label>
 				</fieldset>
 			</div>
 			<div class="form-group col-2">
 				<label for="grp-qtde" class="control-label">Qtde:</label>
-				<input type="number" name="grp-qtde" min="2" max="25" placeholder="Qtde." readonly class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="number" name="grp-qtde" min="2" max="25" ng-disabled="opt == 1" placeholder="Qtde." class="form-control"
+				ng-model="grpQtde" />
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
-			<div class="form-group col-6">
+			<div class="form-group col-6" ng-class="{ 'was-validated' : frmAtividade.name.$invalid && !frmAtividade.name.$pristine }">
 				<label for="name" class="control-label">Atividade:</label>
-				<input type="text" name="name" placeholder="Nome da Atividade" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="name" placeholder="Nome da Atividade" class="form-control"
+				required ng-model="name" maxlength="50" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmAtividade.name.$dirty && frmAtividade.name.$error.required">Nome obrigatório</span>
+				</div>
 			</div>
 			<div class="form-group col">
 				<label for="file" class="control-label">Anexar:</label>
-				<input type="file" name="file" class="form-control" accept="application/pdf"/>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="file" name="file" class="form-control-file" accept="application/pdf"/>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
 			<div class="form-group col">
 				<label for="desc" class="control-label">Descrição:</label>
 				<textarea name="desc" rows="5" placeholder="..." class="form-control rounded-0"></textarea>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">

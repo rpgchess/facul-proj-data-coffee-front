@@ -6,23 +6,24 @@
 			<a href="#!/aluno/new" class="btn btn-lg btn-primary disabled">Novo</a>
 		</div>
 	</form>
-	<form novalidade>
+	<form name="frmAluno" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col-4">
+			<div class="form-group col-4" ng-class="{ 'was-validated' : frmAluno.rgm.$invalid && !frmAluno.rgm.$pristine }">
 				<label for="rgm" class="control-label">Registro:</label>
-				<input type="text" name="rgm" size="" maxlength="" placeholder="Nº de Registro" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="rgm" placeholder="Nº de Registro" class="form-control"
+				required ng-model="rgm" minlength="7" maxlength="7" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmAluno.rgm.$dirty && frmAluno.rgm.$error.required">RGM obrigatório</span>
+					<span class="help-block" ng-show="frmAluno.rgm.$error.minlength">Pouco</span>
+				</div>
 			</div>
-			<div class="form-group col">
+			<div class="form-group col" ng-class="{ 'was-validated' : frmAluno.name.$invalid && !frmAluno.name.$pristine }">
 				<label for="name" class="control-label">Nome:</label>
-				<input type="text" name="name" size="" maxlength="" placeholder="Nome completo" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="name" placeholder="Nome completo" class="form-control"
+				required ng-model="name" maxlength="50" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmAluno.name.$dirty && frmAluno.name.$error.required">Nome obrigatório</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row">
@@ -33,10 +34,6 @@
        					<option value="{{ $index }}" ng-repeat="turma in turmas">{{ turma.nome }}</option>
 					</optgroup>
 				</select>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
 			<div class="form-group col-2">
 				<label for="periodo" class="control-label">Período:</label>
@@ -45,18 +42,14 @@
        					<option value="{{ $index }}" ng-repeat="periodo in periodos">{{ periodo.nome }}</option>
 					</optgroup>
 				</select>
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
 			</div>
-			<div class="form-group col">
+			<div class="form-group col" ng-class="{ 'was-validated' : frmAluno.email.$invalid && !frmAluno.email.$pristine }">
 				<label for="email" class="control-label">Email:</label>
-				<input type="email" name="email" size="" maxlength="" placeholder="exemplo@dominio.com.br" class="form-control" />
-				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span class="help-block"></span>
+				<input type="text" name="email" placeholder="exemplo@dominio.com.br" class="form-control"
+				required ng-model="email" maxlength="50" />
+				<div class="invalid-tooltip">
+					<span class="help-block" ng-show="frmAluno.email.$dirty && frmAluno.email.$error.required">Email obrigatório</span>
+				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
