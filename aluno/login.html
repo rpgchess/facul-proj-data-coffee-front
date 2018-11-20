@@ -1,0 +1,17 @@
+<form name="frmRGM" class="form-signin" novalidate>
+    <div class="form-group" ng-class="{ 'was-validated' : frmRGM.rgm.$invalid && frmRGM.rgm.$dirty }">
+        <h2 class="form-signin-heading">Digite seu RGM:</h2>
+        <input type="text" ng-model="rgm" name="rgm" id="rgm" class="form-control" placeholder="RGM"
+        minlength="7" maxlength="7" required autofocus />
+        <button ng-click="goPainel();" class="btn btn-sm btn-primary btn-block">Verificar</button>
+        <div class="valid-feedback"></div>
+        <div class="invalid-feedback">
+            <span class="help-block" ng-show="frmRGM.rgm.$dirty && frmRGM.rgm.$error.required">RGM é obrigatorio</span>
+            <span class="help-block" ng-show="frmRGM.rgm.$error.minlength">Pouco</span>
+        </div>
+        <br><br>
+        <div class="checkbox">
+            Novo aluno? Clique<a href="#!/create">aqui</a>
+        </div>
+    </div>
+</form>

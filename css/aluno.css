@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,700');
+
+body, html {
+    background-color: #eee;
+    height: 95%;
+}
+  
+.form-signin {
+    font-family: 'Dancing Script', cursive;
+    max-width: 250px;
+    margin: auto;
+}
+.form-signin .form-group h2 {
+    font-weight: bold;
+    font-size: 18pt;
+}
+.form-signin .form-signin-heading,
+.form-signin .form-control, .form-signin .form-group a {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px;
+    font-size: 14pt;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.container, .container-fluid {
+    height: 100%;
+}
+
+.title h1{
+    padding-top: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    font-size: 32pt;
+}
+
+.help-block, .container .checkbox {
+    font-family: 'Times New Roman';
+}
+
+.painel {
+    height: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.painel img {
+    float: right;
+    width: 350px;
+    height: 350px;
+}
+
+.painel-div {
+    height: 100%;
+    display: block;
+    border-right: 1px solid;
+    -webkit-border-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), darkgray, rgba(0, 0, 0, 0)) 1 100%;
+    -moz-border-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0), darkgray, rgba(0, 0, 0, 0)) 1 100%;  
+    -o-border-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0), darkgray, rgba(0, 0, 0, 0)) 1 100%;
+    border-image: linear-gradient(to top, rgba(0, 0, 0, 0), darkgray, rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.painel-view {
+    margin: 15px;
+}
+
+@media only screen and (max-width: 1170px) {
+    .form-signin .form-group h2 {
+        font-weight: bold;
+        font-size: 16pt;
+    }
+    .form-signin .form-control, .form-signin .form-group a {
+        padding: 9px;
+        font-size: 12pt;
+    }
+    .painel img {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .form-signin .form-group {
+        padding-left: 30px;
+    }
+    .form-signin .form-group h2 {
+        font-weight: bold;
+        font-size: 14pt;
+    }
+    .form-signin .form-control, .form-signin .form-group a {
+        padding: 7px;
+        font-size: 11pt;
+    }
+    .painel img {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+@media only screen and (max-width: 574px) {
+    .form-signin .form-group {
+        padding-left: 20px;
+    }
+    .form-signin .form-group h2 {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+    .form-signin .form-control, .form-signin .form-group a {
+        padding: 5px;
+        font-size: 10pt;
+    }
+    .painel img {
+        float: none;
+        width: 180px;
+        height: 180px;
+    }
+    .painel-div {
+        display: none;
+    }
+}

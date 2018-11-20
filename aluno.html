@@ -9,7 +9,7 @@
     
 	<meta name="author" content="Claudio A. Martins">
 	<meta name="description" content="">
-	<link rel="icon" href=".ico">
+	<link rel="icon" href="img/icone-aluno.png">
     
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
 	
@@ -20,14 +20,28 @@
 	<link rel="stylesheet" href="frameworks/alertify/css/alertify.core.css" />
 	
 	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/aluno.css" />
 	
 	<script src="frameworks/modernizr/js/modernizr.js"></script> <!-- Modernizr -->
 
     <title>Área do Aluno</title>
 </head>
 <body>
-    <div class="container">
-
+	<div class="container">
+		<div class="form-row title justify-content-center">
+			<h1><a href="#!/login">Área do Aluno</a></h1>
+		</div>
+		<div class="form-row painel justify-content-center">
+			<div class="form-group col-sm-4 align-items-center painel-img">
+				<center>
+					<img src="../img/aluno.png" alt="Área do Aluno" />
+				</center>
+			</div>
+			<div class="form-group col-sm-0 align-items-center painel-div"></div>
+			<div class="form-group col align-items-center painel-view">
+				<div ng-view></div>
+			</div>
+		</div>
     </div> <!-- /container -->
 	<!-- JQuery -->
 	<script src="frameworks/jquery/js/jquery-3.3.1.min.js"></script>
@@ -37,6 +51,10 @@
 	<script src="frameworks/alertify/js/alertify.min.js"></script>
 	<!-- AngularJS -->
 	<script src="frameworks/angularjs/js/angular.min.js"></script>
+	<script src="frameworks/angularjs/js/angular-route.min.js"></script>
     <script src="js/aluno-main.js"></script>
+	<script src="js/aluno-login.js"></script>
+	<script src="js/aluno-painel.js"></script>
+	<script src="js/aluno-create.js"></script>
 </body>
 </html>

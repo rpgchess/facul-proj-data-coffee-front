@@ -1,0 +1,71 @@
+<form novalidate>
+    <div class="form-row justify-content-start">
+        <div class="col mb-2">
+            <a href="#!/login" class="btn btn-sm btn-secondary">Sair</a>
+        </div>
+    </div>
+</form>
+<form name="frmAluno" novalidate>
+        <div class="form-row justify-content-center">
+            <div class="col-md-4" ng-class="{ 'was-validated' : frmAluno.rgm.$invalid && !frmAluno.rgm.$pristine }">
+                <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">RGM</span>
+                    </div>
+                    <input type="text" name="rgm" class="form-control"
+                    required ng-model="rgm" minlength="8" maxlength="8" />
+                    <div class="invalid-feedback text-center">
+                        <span class="help-block" ng-show="frmAluno.rgm.$dirty && frmAluno.rgm.$error.required">RGM obrigatório</span>
+                        <span class="help-block" ng-show="frmAluno.rgm.$error.minlength">Pouco</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col" ng-class="{ 'was-validated' : frmAluno.name.$invalid && !frmAluno.name.$pristine }">
+                <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
+                    </div>
+                    <input type="text" name="name" class="form-control"
+                    required ng-model="name" maxlength="50" />
+                    <div class="invalid-feedback text-center">
+                        <span class="help-block" ng-show="frmAluno.name.$dirty && frmAluno.name.$error.required">Nome obrigatório</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row justify-content-center">
+            <div class="col" ng-class="{ 'was-validated' : frmAluno.email.$invalid && !frmAluno.email.$pristine }">
+                <div class="input-group input-group-sm mb-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                    </div>
+                    <input type="text" name="email" placeholder="exemplo@dominio.com.br" class="form-control"
+                    required ng-model="email" maxlength="50" />
+                    <div class="invalid-feedback text-center">
+                        <span class="help-block" ng-show="frmAluno.email.$dirty && frmAluno.email.$error.required">Email obrigatório</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row justify-content-start">
+            <div class="col-lg-3">
+                <div class="input-group input-group-sm mb-2">
+                    <select name="turma" class="form-control" required
+                    ng-model="turma.selected" ng-options="turma.nome for turma in turmas">
+                        <option value="">Turma:</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="input-group input-group-sm mb-2">
+                    <select name="periodo" class="form-control" required
+                    ng-model="periodo.selected" ng-options="periodo.nome for periodo in periodos">
+                        <option value="">Período:</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col" ng-show="frmAluno.$valid && frmAluno.$dirty">
+                <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
+            </div>
+        </div>
+    </form>
