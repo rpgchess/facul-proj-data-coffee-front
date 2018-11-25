@@ -1,28 +1,28 @@
 <div class="container">
 	<form novalidate class="form-inline">
 		<div class="form-group">
-			<a href="#!/turma/list" class="btn btn-lg btn-primary">Voltar</a>
-			<label for="title" class="control-label">CADASTRAR TURMA</label>
+			<a href="#!/turma/list" class="btn btn-lg btn-primary">Voltar</a> | 
 			<a href="#!/turma/new" class="btn btn-lg btn-primary disabled">Novo</a>
+			<label for="title" class="control-label">CADASTRAR TURMA</label>
 		</div>
 	</form>
 	<form name="frmTurma" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col" ng-class="{ 'was-validated' : frmTurma.turma.$invalid && !frmTurma.turma.$pristine }">
-				<label for="turma" class="control-label">Turma:</label>
-				<input type="text" name="turma" placeholder="Turma" class="form-control"
-				required ng-model="turma" maxlength="10" />
+			<div class="form-group col" ng-class="{ 'was-validated' : frmTurma.name.$invalid && !frmTurma.name.$pristine }">
+				<label for="name" class="control-label">Turma:</label>
+				<input type="text" name="name" placeholder="Turma" class="form-control"
+				required ng-model="name" maxlength="10" />
 				<div class="invalid-tooltip">
-					<span class="help-block" ng-show="frmTurma.turma.$dirty && frmTurma.turma.$error.required">Turma obrigatória</span>
+					<p ng-show="frmTurma.name.$dirty && frmTurma.name.$error.required">Turma obrigatória</p>
 				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary right" type="reset">Limpar</button>
+				<button class="btn btn-lg btn-primary right" ng-click="reset();" type="reset">Limpar</button>
 			</div>
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary left" type="submit">Cadastrar</button>
+				<button class="btn btn-lg btn-primary left" ng-click="salvar();" ng-disabled="frmTurma.$invalid" type="submit">Cadastrar</button>
 			</div>
 		</div>	
 	</form>

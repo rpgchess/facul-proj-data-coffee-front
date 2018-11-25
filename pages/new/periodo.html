@@ -1,28 +1,28 @@
 <div class="container">
 	<form novalidate class="form-inline">
 		<div class="form-group">
-			<a href="#!/periodo/list" class="btn btn-lg btn-primary">Voltar</a>
-			<label for="title" class="control-label">CADASTRAR PERÍODO</label>
+			<a href="#!/periodo/list" class="btn btn-lg btn-primary">Voltar</a> | 
 			<a href="#!/periodo/new" class="btn btn-lg btn-primary disabled">Novo</a>
+			<label for="title" class="control-label">CADASTRAR PERÍODO</label>
 		</div>
 	</form>
 	<form name="frmPeriod" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col" ng-class="{ 'was-validated' : frmPeriod.period.$invalid && !frmPeriod.period.$pristine }">
-				<label for="period" class="control-label">Período:</label>
-				<input type="text" name="period" placeholder="Período" class="form-control"
-				required ng-model="period" maxlength="10" />
+			<div class="form-group col" ng-class="{ 'was-validated' : frmPeriod.name.$invalid && !frmPeriod.name.$pristine }">
+				<label for="name" class="control-label">Período:</label>
+				<input type="text" name="name" placeholder="Período" class="form-control"
+				required ng-model="name" maxlength="10" />
 				<div class="invalid-tooltip">
-					<span class="help-block" ng-show="frmPeriod.period.$dirty && frmPeriod.period.$error.required">Período obrigatório</span>
+					<p ng-show="frmPeriod.name.$dirty && frmPeriod.name.$error.required">Período obrigatório</p>
 				</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary right" type="reset">Limpar</button>
+				<button class="btn btn-lg btn-primary right" ng-click="reset();" type="reset">Limpar</button>
 			</div>
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary left" type="submit">Cadastrar</button>
+				<button class="btn btn-lg btn-primary left" ng-click="salvar();" ng-disabled="frmPeriod.$invalid" type="submit">Cadastrar</button>
 			</div>
 		</div>	
 	</form>

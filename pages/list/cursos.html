@@ -1,16 +1,17 @@
 <div class="container">
 	<form class="form-inline">
 		<div class="form-group">
-			<a href="#!/curso/list" class="btn btn-lg btn-primary disabled">Voltar</a>
-			<label for="title" class="control-label">CURSOS</label>
+			<a href="#!/curso/list" class="btn btn-lg btn-primary disabled">Voltar</a> | 
 			<a href="#!/curso/new" class="btn btn-lg btn-primary">Novo</a>
+			<label for="title" class="control-label">CURSOS</label>
 		</div>
 	</form>
 	<table class="table table-sm table-striped table-hover">
 		<thead class="thead-light">
 		    <tr>
 	    		<th scope="col">Abrev.</th>
-		    	<th scope="col"><input type="text" name="search" class="search" ng-model="curso.nome" placeholder="Curso"></th>
+				<th scope="col"><input type="text" name="search" class="search" ng-model="curso.nome" placeholder="Curso"></th>
+				<th scope="col">Tipo</th>
 		    	<th scope="col">Categoria</th>
 	    		<th scope="col" style="width:100px">Controle</th>
 	    	</tr>
@@ -19,9 +20,10 @@
 			<tr ng-repeat="curso in cursos | filter:curso">
 				<td>{{ curso.abrev }}</td>
 				<td>{{ curso.nome }}</td>
+				<td>{{ curso.tipo }}</td>
 				<td>{{ curso.categoria }}</td>
 				<td>
-					<a href="#!/" class="btn btn-sm btn-primary">Editar</a>
+					<a href="#!/curso/edit/{{ $index }}" class="btn btn-sm btn-primary">Editar</a>
 					<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>

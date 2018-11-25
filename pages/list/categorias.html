@@ -1,9 +1,9 @@
 <div class="container">
 	<form class="form-inline">
 		<div class="form-group">
-			<a href="#!/categoria/list" class="btn btn-lg btn-primary disabled">Voltar</a>
-			<label for="title" class="control-label">CATEGORIAS</label>
+			<a href="#!/categoria/list" class="btn btn-lg btn-primary disabled">Voltar</a> | 
 			<a href="#!/categoria/new" class="btn btn-lg btn-primary">Novo</a>
+			<label for="title" class="control-label">CATEGORIAS</label>
 		</div>
 	</form>
 	<table class="table table-sm table-striped table-hover">
@@ -17,7 +17,7 @@
 			<tr ng-repeat="categoria in categorias | filter:categoria">
 	    		<td>{{ categoria.nome }}</td>
 	    		<td>
-		      		<a href="#!/" class="btn btn-sm btn-primary">Editar</a>
+		      		<a href="#!/categoria/edit/{{ $index }}" class="btn btn-sm btn-primary">Editar</a>
 			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>

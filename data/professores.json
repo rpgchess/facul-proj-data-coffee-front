@@ -1,4 +1,4 @@
 [
-    {"rgm":1234567, "nome":"Tati", "acesso":"Cordenador(a)", "email":"tati@unicid.com.br"},
-    {"rgm":7654321, "nome":"Almir", "acesso":"Professor(a)", "email":"almir@unicid.com.br"}
+    {"rgm":12345678, "password": "12345678", "nome":"Tati", "tipo":"Coordenador(a)", "email":"tati@unicid.com.br"},
+    {"rgm":87654321, "password": "87654321", "nome":"Almir", "tipo":"Professor(a)", "email":"almir@unicid.com.br"}
 ]

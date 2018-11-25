@@ -1,63 +1,56 @@
 <div class="container">
 	<form novalidate class="form-inline">
 		<div class="form-group">
-			<a href="#!/aluno/list" class="btn btn-lg btn-primary">Voltar</a>
-			<label for="title" class="control-label">CADASTRAR ALUNO</label>
+			<a href="#!/aluno/list" class="btn btn-lg btn-primary">Voltar</a> | 
 			<a href="#!/aluno/new" class="btn btn-lg btn-primary disabled">Novo</a>
+			<label for="title" class="control-label">CADASTRAR ALUNO</label>
 		</div>
 	</form>
 	<form name="frmAluno" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col-4" ng-class="{ 'was-validated' : frmAluno.rgm.$invalid && !frmAluno.rgm.$pristine }">
+			<div class="form-group col-sm-4" ng-class="{ 'was-validated' : frmAluno.rgm.$invalid && !frmAluno.rgm.$pristine }">
 				<label for="rgm" class="control-label">Registro:</label>
 				<input type="text" name="rgm" placeholder="Nº de Registro" class="form-control"
-				required ng-model="rgm" minlength="7" maxlength="7" />
+				required ng-model="rgm" minlength="8" maxlength="8" />
 				<div class="invalid-tooltip">
-					<span class="help-block" ng-show="frmAluno.rgm.$dirty && frmAluno.rgm.$error.required">RGM obrigatório</span>
-					<span class="help-block" ng-show="frmAluno.rgm.$error.minlength">Pouco</span>
+					<p ng-show="frmAluno.rgm.$dirty && frmAluno.rgm.$error.required">RGM obrigatório</p>
+					<p ng-show="frmAluno.rgm.$error.minlength">Pouco</p>
 				</div>
 			</div>
-			<div class="form-group col" ng-class="{ 'was-validated' : frmAluno.name.$invalid && !frmAluno.name.$pristine }">
+			<div class="form-group col-sm" ng-class="{ 'was-validated' : frmAluno.name.$invalid && !frmAluno.name.$pristine }">
 				<label for="name" class="control-label">Nome:</label>
 				<input type="text" name="name" placeholder="Nome completo" class="form-control"
 				required ng-model="name" maxlength="50" />
 				<div class="invalid-tooltip">
-					<span class="help-block" ng-show="frmAluno.name.$dirty && frmAluno.name.$error.required">Nome obrigatório</span>
+					<p ng-show="frmAluno.name.$dirty && frmAluno.name.$error.required">Nome obrigatório</p>
 				</div>
 			</div>
 		</div>
 		<div class="form-row">
-			<div class="form-group col-2">
+			<div class="form-group col-sm-2">
 				<label for="turma" class="control-label">Turma:</label>
-				<select name="turma" class="form-control">
-					<optgroup label="Itens:">
-       					<option value="{{ $index }}" ng-repeat="turma in turmas">{{ turma.nome }}</option>
-					</optgroup>
-				</select>
+				<select name="turma" class="form-control" ng-model="turma" ng-options="t.nome group by 'Itens:' for t in turmas"></select>
 			</div>
-			<div class="form-group col-2">
+			<div class="form-group col-sm-2">
 				<label for="periodo" class="control-label">Período:</label>
-				<select name="periodo" class="form-control">
-					<optgroup label="Itens:">
-       					<option value="{{ $index }}" ng-repeat="periodo in periodos">{{ periodo.nome }}</option>
-					</optgroup>
-				</select>
+				<select name="periodo" class="form-control" ng-model="periodo" ng-options="p.nome group by 'Itens:' for p in periodos"></select>
 			</div>
-			<div class="form-group col" ng-class="{ 'was-validated' : frmAluno.email.$invalid && !frmAluno.email.$pristine }">
+			<div class="form-group col-sm" ng-class="{ 'was-validated' : frmAluno.email.$invalid && !frmAluno.email.$pristine }">
 				<label for="email" class="control-label">Email:</label>
 				<input type="text" name="email" placeholder="exemplo@dominio.com.br" class="form-control"
 				required ng-model="email" maxlength="50" />
 				<div class="invalid-tooltip">
-					<span class="help-block" ng-show="frmAluno.email.$dirty && frmAluno.email.$error.required">Email obrigatório</span>
-				</div>
+						<p ng-show="frmAluno.email.$dirty && frmAluno.email.$error.required">Email obrigatório</p>
+						<p ng-show="frmAluno.email.$invalid && !frmAluno.email.$error.required">Email inválido</p>
+					</div>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary right" type="reset">Limpar</button>
+				<button class="btn btn-lg btn-primary right" ng-click="reset();" type="reset">Limpar</button>
 			</div>
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary left" type="submit">Cadastrar</button>
+				<button class="btn btn-lg btn-primary left" ng-click="salvar();" ng-disabled="frmAluno.$invalid" type="submit">Cadastrar</button>
 			</div>
 		</div>	
 	</form>

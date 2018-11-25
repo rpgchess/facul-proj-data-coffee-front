@@ -1,42 +1,42 @@
 <div class="container">
 	<form novalidate class="form-inline">
 		<div class="form-group">
-			<a href="#!/curso/list" class="btn btn-lg btn-primary">Voltar</a>
-			<label for="title" class="control-label">CADASTRAR CURSO</label>
+			<a href="#!/curso/list" class="btn btn-lg btn-primary">Voltar</a> | 
 			<a href="#!/curso/new" class="btn btn-lg btn-primary disabled">Novo</a>
+			<label for="title" class="control-label">CADASTRAR CURSO</label>
 		</div>
 	</form>
 	<form name="frmCurso" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col-2">
+			<div class="form-group col-sm-2">
 				<label for="abrev" class="control-label">Abrev.</label>
-				<input type="text" name="abrev" placeholder="ABC" class="form-control" />
+				<input type="text" name="abrev" ng-model="abrev" placeholder="ABC" class="form-control" />
 			</div>
-			<div class="form-group col" ng-class="{ 'was-validated' : frmCurso.name.$invalid && !frmCurso.name.$pristine }">
+			<div class="form-group col-sm" ng-class="{ 'was-validated' : frmCurso.name.$invalid && !frmCurso.name.$pristine }">
 				<label for="name" class="control-label">Curso:</label>
-				<input type="text" name="name" size="" maxlength="" placeholder="Curso" class="form-control"
+				<input type="text" name="name" placeholder="Curso" class="form-control"
 				required ng-model="name" maxlength="50" />
 				<div class="invalid-tooltip">
-					<span class="help-block" ng-show="frmCurso.name.$dirty && frmCurso.name.$error.required">Nome obrigatório</span>
+					<p ng-show="frmCurso.name.$dirty && frmCurso.name.$error.required">Nome obrigatório</p>
 				</div>
 			</div>
 		</div>
-		<div class="form-row justify-content-start">
-			<div class="form-group col-6">
-				<label for="categ" class="control-label">Categoria</label>
-				<select name="categ" class="form-control">
-					<optgroup label="Itens:">
-						<option value="{{ $index }}" ng-repeat="categoria in categorias">{{ categoria.nome }}</option>
-					</optgroup>
-				</select>
+		<div class="form-row justify-content-center">
+			<div class="form-group col-sm-4">
+				<label for="type" class="control-label">Nível:</label>
+				<select name="type" class="form-control" ng-model="type" ng-options="t.nome group by 'Itens:' for t in types"></select>
+			</div>
+			<div class="form-group col-sm">
+				<label for="categoria" class="control-label">Categoria</label>
+				<select name="categoria" class="form-control" ng-model="categoria" ng-options="c.nome group by 'Itens:' for c in categorias"></select>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary right" type="reset">Limpar</button>
+				<button class="btn btn-lg btn-primary right" ng-click="reset();" type="reset">Limpar</button>
 			</div>
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary left" type="submit">Cadastrar</button>
+				<button class="btn btn-lg btn-primary left" ng-click="salvar();" ng-disabled="frmCurso.$invalid" type="submit">Cadastrar</button>
 			</div>
 		</div>	
 	</form>

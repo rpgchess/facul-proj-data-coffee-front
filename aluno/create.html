@@ -64,8 +64,8 @@
                     </select>
                 </div>
             </div>
-            <div class="col" ng-show="frmAluno.$valid && frmAluno.$dirty">
-                <button class="btn btn-sm btn-primary" type="submit">Salvar</button>
+            <div class="col">
+                <button class="btn btn-sm btn-primary" type="submit" ng-class="{ 'disabled' : frmAluno.$invalid || frmAlunoAluno.$dirty }">Salvar</button>
             </div>
         </div>
     </form>

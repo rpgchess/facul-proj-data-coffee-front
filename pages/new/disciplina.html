@@ -1,43 +1,32 @@
 <div class="container">
 	<form novalidate class="form-inline">
 		<div class="form-group">
-			<a href="#!/disciplina/list" class="btn btn-lg btn-primary">Voltar</a>
-			<label for="title" class="control-label">CADASTRAR DISCIPLINA</label>
+			<a href="#!/disciplina/list" class="btn btn-lg btn-primary">Voltar</a> | 
 			<a href="#!/disciplina/new" class="btn btn-lg btn-primary disabled">Novo</a>
+			<label for="title" class="control-label">CADASTRAR DISCIPLINA</label>
 		</div>
 	</form>
 	<form name="frmDisc" novalidate>
 		<div class="form-row justify-content-center">
-			<div class="form-group col" ng-class="{ 'was-validated' : frmDisc.name.$invalid && !frmDisc.name.$pristine }">
+			<div class="form-group col-sm" ng-class="{ 'was-validated' : frmDisc.name.$invalid && !frmDisc.name.$pristine }">
 				<label for="name" class="control-label">Disciplina:</label>
 				<input type="text" name="name" placeholder="Nome da disciplina" class="form-control"
 				required ng-model="name" maxlength="50" />
 				<div class="invalid-tooltip">
-					<span class="help-block" ng-show="frmDisc.name.$dirty && frmDisc.name.$error.required">Nome obrigatório</span>
+					<p ng-show="frmDisc.name.$dirty && frmDisc.name.$error.required">Nome obrigatório</p>
 				</div>
 			</div>
-		</div>
-		<div class="form-row justify-content-start">
-			<div class="form-group col-2">
-				<label for="sem" class="control-label">Semestre</label>
-				<input type="number" name="sem" min="1" max="10" placeholder="Qtde." class="form-control" />
-			</div>
-			<div class="form-group col">
+			<div class="form-group col-sm">
 				<label for="curso" class="control-label">Curso:</label>
-				<!-- <select name="curso" class="form-control selectpicker" data-live-search="true"> -->
-				<select name="curso" class="form-control" searchable="Pesquisar...">
-					<optgroup label="Itens:">
-						<option value="{{ $index }}" ng-repeat="curso in cursos">{{ curso.nome }}</option>
-					</optgroup>
-				</select>
+				<select name="curso" class="form-control" ng-model="curso" ng-options="c.nome group by 'Itens:' for c in cursos"></select>
 			</div>
 		</div>
 		<div class="form-row justify-content-center">
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary right" type="reset">Limpar</button>
+				<button class="btn btn-lg btn-primary right" ng-click="reset();" type="reset">Limpar</button>
 			</div>
 			<div class="form-group col">
-				<button class="btn btn-lg btn-primary left" type="submit">Cadastrar</button>
+				<button class="btn btn-lg btn-primary left" ng-click="salvar();" ng-disabled="frmDisc.$invalid" type="submit">Cadastrar</button>
 			</div>
 		</div>	
 	</form>

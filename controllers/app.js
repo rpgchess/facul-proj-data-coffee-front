@@ -1,4 +1,5 @@
 angular.module('dataCoffee', ['ngRoute'])
+.directive('compareTo', compareTo)
 // Definindo Rotas
 .config(function($routeProvider, $locationProvider){
 	// Utilizando o HTML5 History API (TRUE)
@@ -43,7 +44,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newProfessor",
 				templateUrl: "pages/new/professor.html"
 			}
-		).when("/professor/edit:obj",
+		).when("/professor/edit/:obj",
 			{
 				controller: "editProfessor",
 				templateUrl: "pages/new/professor.html"
@@ -58,7 +59,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newCurso",
 				templateUrl: "pages/new/curso.html"
 			}
-		).when("/curso/edit:obj",
+		).when("/curso/edit/:obj",
 			{
 				controller: "editCurso",
 				templateUrl: "pages/new/curso.html"
@@ -73,7 +74,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newCategoria",
 				templateUrl: "pages/new/categoria.html"
 			}
-		).when("/categoria/edit:obj",
+		).when("/categoria/edit/:obj",
 			{
 				controller: "editCategoria",
 				templateUrl: "pages/new/categoria.html"
@@ -90,7 +91,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newDisciplina",
 				templateUrl: "pages/new/disciplina.html"
 			}
-		).when("/disciplina/edit:obj",
+		).when("/disciplina/edit/:obj",
 			{
 				controller: "editDisciplina",
 				templateUrl: "pages/new/disciplina.html"
@@ -107,7 +108,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newAtividade",
 				templateUrl: "pages/new/atividade.html"
 			}
-		).when("/atividade/edit:obj",
+		).when("/atividade/edit/:obj",
 			{
 				controller: "editAtividade",
 				templateUrl: "pages/new/atividade.html"
@@ -122,7 +123,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newAluno",
 				templateUrl: "pages/new/aluno.html"
 			}
-		).when("/aluno/edit:obj",
+		).when("/aluno/edit/:obj",
 			{
 				controller: "editAluno",
 				templateUrl: "pages/new/aluno.html"
@@ -137,7 +138,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newTurma",
 				templateUrl: "pages/new/turma.html"
 			}
-		).when("/turma/edit:obj",
+		).when("/turma/edit/:obj",
 			{
 				controller: "editTurma",
 				templateUrl: "pages/new/turma.html"
@@ -152,7 +153,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newPeriodo",
 				templateUrl: "pages/new/periodo.html"
 			}
-		).when("/periodo/edit:obj",
+		).when("/periodo/edit/:obj",
 			{
 				controller: "editPeriodo",
 				templateUrl: "pages/new/periodo.html"
@@ -171,7 +172,7 @@ angular.module('dataCoffee', ['ngRoute'])
 			{
 				templateUrl: "aluno-make.html"
 			}
-		).when("/aluno/make:obj",
+		).when("/aluno/make/:obj",
 			{
 				templateUrl: "aluno-make.html"
 			}
@@ -185,7 +186,7 @@ angular.module('dataCoffee', ['ngRoute'])
 				controller: "newGrupo",
 				templateUrl: "pages/new/grupo.html"
 			}
-		).when("/grupo/edit:obj",
+		).when("/grupo/edit/:obj",
 			{
 				controller: "editGrupo",
 				templateUrl: "pages/new/grupo.html"
@@ -212,7 +213,26 @@ angular.module('dataCoffee', ['ngRoute'])
 	$rootScope.periodoUrl = "data/periodos.json";
 	$rootScope.professorUrl = "data/professores.json";
 	$rootScope.turmaUrl = "data/turmas.json";
+	$rootScope.typesCursoUrl = "data/tipos-curso.json";
+	$rootScope.typesAcessoUrl = "data/tipos-acesso.json";
 	$rootScope.home = function (){
 		$location.path('/')
 	}
 })
+
+function compareTo() {
+    return {
+        require: "ngModel",
+        scope: {
+            pwdretype: "=compareTo"
+        },
+        link: function(scope, element, attributes, modelVal) {
+            modelVal.$validators.compareTo = function(val) {
+                return val == scope.pwdretype;
+            };
+            scope.$watch("pwdretype", function() {
+                modelVal.$validate();
+            });
+        }
+    }
+}

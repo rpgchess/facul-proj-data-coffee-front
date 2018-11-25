@@ -1,9 +1,9 @@
 <div class="container">
 	<form class="form-inline">
 		<div class="form-group">
-			<a href="#!/disciplina/list" class="btn btn-lg btn-primary disabled">Voltar</a>
-			<label for="title" class="control-label">DISCIPLINAS</label>
+			<a href="#!/disciplina/list" class="btn btn-lg btn-primary disabled">Voltar</a> | 
 			<a href="#!/disciplina/new" class="btn btn-lg btn-primary">Novo</a>
+			<label for="title" class="control-label">DISCIPLINAS</label>
 		</div>
 	</form>
 	<table class="table table-sm table-striped table-hover">
@@ -22,7 +22,7 @@
 				<td>{{ disciplina.curso }}</td>
 				<td>{{ disciplina.tipo }}</td>
 		    	<td>
-		      		<a href="#!/" class="btn btn-sm btn-primary">Editar</a>
+		      		<a href="#!/disciplina/edit/{{ $index }}" class="btn btn-sm btn-primary">Editar</a>
 			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>

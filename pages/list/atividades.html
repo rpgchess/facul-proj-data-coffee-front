@@ -1,9 +1,9 @@
 <div class="container">
 	<form class="form-inline">
 		<div class="form-group">
-			<a href="#!/atividade/list" class="btn btn-lg btn-primary disabled">Voltar</a>
-			<label for="title" class="control-label">ATIVIDADES</label>
+			<a href="#!/atividade/list" class="btn btn-lg btn-primary disabled">Voltar</a> | 
 			<a href="#!/atividade/new" class="btn btn-lg btn-primary">Novo</a>
+			<label for="title" class="control-label">ATIVIDADES</label>
 		</div>
 	</form>
 	<table class="table table-sm table-striped table-hover">
@@ -27,7 +27,7 @@
 			   	<td>{{ atividade.turma }}</td>
 			   	<!-- <td>Finalizado</td> -->
 		    	<td>
-		      		<a href="#!/" class="btn btn-sm btn-primary">Editar</a>
+		      		<a href="#!/atividade/edit/{{ $index }}" class="btn btn-sm btn-primary">Editar</a>
 			  		<a href="#!/" class="btn btn-sm btn-primary">Excluir</a>
 				</td>
 			</tr>

@@ -1,8 +1,8 @@
 [
-    {"rgm": 18426581, "nome": "Claudio Almeida Martins", "turma": "3B/4C", "periodo": "Noturno"},
-    {"rgm": 18508774, "nome": "Beatriz Martins Barbosa Filho", "turma": "3B/4C", "periodo": "Noturno"},
-    {"rgm": 18262066, "nome": "Davi Lourenço Mota", "turma": "3B/4C", "periodo": "Noturno"},
-    {"rgm": 18398537, "nome": "Lucas Santos Amaral", "turma": "3B/4C", "periodo": "Noturno"},
-    {"rgm": 18269613, "nome": "Rafael Azzi Patricio", "turma": "3B/4C", "periodo": "Noturno"},
-    {"rgm": 18555471, "nome": "Renan Afonso Valentim", "turma": "3B/4C", "periodo": "Noturno"}
+    {"rgm": 18426581, "email": "claudio@gmail.com", "nome": "Claudio Almeida Martins", "turma": "3B/4C", "periodo": "Noturno"},
+    {"rgm": 18508774, "email": "beatriz@gmail.com", "nome": "Beatriz Martins Barbosa Filho", "turma": "3B/4C", "periodo": "Noturno"},
+    {"rgm": 18262066, "email": "davi@gmail.com", "nome": "Davi Lourenço Mota", "turma": "3B/4C", "periodo": "Noturno"},
+    {"rgm": 18398537, "email": "lucas@gmail.com", "nome": "Lucas Santos Amaral", "turma": "3B/4C", "periodo": "Noturno"},
+    {"rgm": 18269613, "email": "rafael@gmail.com", "nome": "Rafael Azzi Patricio", "turma": "3B/4C", "periodo": "Noturno"},
+    {"rgm": 18555471, "email": "renan@gmail.com", "nome": "Renan Afonso Valentim", "turma": "3B/4C", "periodo": "Noturno"}
 ]
