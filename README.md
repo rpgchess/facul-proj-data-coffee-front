@@ -255,22 +255,33 @@ facul-proj-data-coffee-front/
 
 2. **Inicie um servidor local**:
 
-   **Opção 1: Python 3**
+   **Opção 1: Com Node.js e npm (Recomendado)**
+   ```bash
+   # Instalar dependências (se tiver package.json)
+   npm install
+   
+   # Iniciar servidor com hot-reload
+   npm start
+   # ou
+   npm run dev
+   ```
+
+   **Opção 2: Python 3**
    ```bash
    python -m http.server 8080
    ```
 
-   **Opção 2: Python 2**
+   **Opção 3: Python 2**
    ```bash
    python -m SimpleHTTPServer 8080
    ```
 
-   **Opção 3: Node.js**
+   **Opção 4: Node.js (sem npm)**
    ```bash
    npx http-server -p 8080
    ```
 
-   **Opção 4: PHP**
+   **Opção 5: PHP**
    ```bash
    php -S localhost:8080
    ```
@@ -470,6 +481,44 @@ $rootScope.baseUrl = "http://your-backend-url/";
 1. Edite os arquivos diretamente
 2. Atualize o navegador para ver as mudanças
 3. Use o DevTools do navegador para debug
+
+---
+
+## ⚙️ Melhorias Implementadas
+
+Este projeto recebeu melhorias de qualidade e configuração:
+
+### ✅ Configuração e Build
+- **package.json** adicionado para gerenciamento de dependências
+- Scripts npm configurados (`npm start`, `npm run dev`)
+- Suporte a `http-server` e `live-server` para desenvolvimento
+- EditorConfig para garantir encoding UTF-8 consistente
+
+### ✅ Desenvolvimento
+- Scripts de inicialização rápida
+- Servidor de desenvolvimento com hot-reload (live-server)
+- Configuração de portas padronizada (8080)
+- Documentação aprimorada de instalação
+
+### 📝 Scripts Disponíveis
+
+```bash
+# Iniciar servidor HTTP simples (abre automaticamente no navegador)
+npm start
+
+# Iniciar servidor com Python
+npm run serve
+
+# Servidor com live-reload (recarrega automaticamente ao salvar)
+npm run dev
+```
+
+### 🔧 EditorConfig
+Arquivo `.editorconfig` garante:
+- Encoding UTF-8 em todos os arquivos
+- Indentação consistente (2 espaços para web)
+- Line endings Unix (LF)
+- Trim trailing whitespace
 
 ---
 

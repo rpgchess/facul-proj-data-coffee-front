@@ -1,0 +1,31 @@
+{
+  "name": "data-coffee-front",
+  "version": "1.0.0",
+  "description": "Sistema web para gerenciamento de atividades acadêmicas - Frontend",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "serve": "python -m http.server 8080",
+    "dev": "npx live-server --port=8080 --entry-file=index.html"
+  },
+  "keywords": [
+    "angular",
+    "bootstrap",
+    "education",
+    "academic",
+    "spa"
+  ],
+  "author": "Claudio Almeida",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/facul-proj-data-coffee-front.git"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
